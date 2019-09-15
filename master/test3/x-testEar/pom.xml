@@ -1,0 +1,56 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.sky</groupId>
+		<artifactId>test3</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>x-testEar</artifactId>
+	<packaging>ear</packaging>
+	
+	<dependencies>
+<!-- 		<dependency>
+			<groupId>com.sky</groupId>
+			<artifactId>x-testJar</artifactId>
+		</dependency> -->
+		<dependency>
+			<groupId>com.sky</groupId>
+			<artifactId>x-testWeb</artifactId>
+			<type>war</type>
+		</dependency>
+	</dependencies>
+	
+	<build>
+		<finalName>x-testEar</finalName>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-ear-plugin</artifactId>
+					<version>2.9</version>
+					<configuration>
+						<defaultLibBundleDir>lib/</defaultLibBundleDir>
+						<skinnyWars>true</skinnyWars>
+						<packagingIncludes>META-INF/**,*/**.jar,**.war</packagingIncludes>
+						<jboss>
+							<version>5</version>
+							<module-oder>strict</module-oder>
+						</jboss>
+						<modules>
+					<!-- 		<jarModule>
+								<groupId>com.sky</groupId>
+								<artifactId>x-testJar</artifactId>
+							</jarModule> -->
+							<webModule>
+								<groupId>com.sky</groupId>
+								<artifactId>x-testWeb</artifactId>
+								<contextRoot>/test</contextRoot>
+							</webModule>
+						</modules>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>
