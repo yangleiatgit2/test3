@@ -23,8 +23,7 @@ public class LoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		System.out.println("处理Post请求。。。。。");
-		System.out.println("just a test。。。。。");
-		System.out.println("just a test222。。。。。");
+		
 		System.out.println("just a test。。。。。");
 		response.getWriter().write("psot ok");
 	}
